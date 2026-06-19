@@ -1,0 +1,55 @@
+@model ComicSystem.Models.RentalCreateViewModel
+@{
+    ViewData["Title"] = "Xử lý thuê truyện";
+}
+
+<h2>Xử lý thuê truyện</h2>
+
+@if (TempData["Message"] != null)
+{
+    <div class="alert alert-success">@TempData["Message"]</div>
+}
+
+<form asp-action="Create" method="post">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+    <div class="mb-3">
+        <label asp-for="CustomerID" class="form-label"></label>
+        <select asp-for="CustomerID" asp-items="ViewBag.CustomerID" class="form-select">
+            <option value="">-- Chọn khách hàng --</option>
+        </select>
+        <span asp-validation-for="CustomerID" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ComicBookID" class="form-label"></label>
+        <select asp-for="ComicBookID" asp-items="ViewBag.ComicBookID" class="form-select">
+            <option value="">-- Chọn truyện --</option>
+        </select>
+        <span asp-validation-for="ComicBookID" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="RentalDate" class="form-label"></label>
+        <input asp-for="RentalDate" class="form-control" type="date" />
+        <span asp-validation-for="RentalDate" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="ReturnDate" class="form-label"></label>
+        <input asp-for="ReturnDate" class="form-control" type="date" />
+        <span asp-validation-for="ReturnDate" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="Quantity" class="form-label"></label>
+        <input asp-for="Quantity" class="form-control" />
+        <span asp-validation-for="Quantity" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Xử lý thuê</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,55 @@
+@model ComicSystem.Models.ReportViewModel
+@{
+    ViewData["Title"] = "Báo cáo thuê truyện";
+}
+
+<h2>Báo cáo thuê truyện</h2>
+
+<form asp-action="Index" method="post" class="row g-3 mb-4">
+    <div class="col-md-4">
+        <label asp-for="StartDate" class="form-label"></label>
+        <input asp-for="StartDate" class="form-control" type="date" />
+        <span asp-validation-for="StartDate" class="text-danger"></span>
+    </div>
+    <div class="col-md-4">
+        <label asp-for="EndDate" class="form-label"></label>
+        <input asp-for="EndDate" class="form-control" type="date" />
+        <span asp-validation-for="EndDate" class="text-danger"></span>
+    </div>
+    <div class="col-md-4 d-flex align-items-end">
+        <button type="submit" class="btn btn-primary">Xem báo cáo</button>
+    </div>
+</form>
+
+@if (Model.Items.Any())
+{
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>No</th>
+                <th>Book name</th>
+                <th>Rental date</th>
+                <th>Return date</th>
+                <th>Customer name</th>
+                <th>Quantity</th>
+            </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.No</td>
+                <td>@item.BookName</td>
+                <td>@item.RentalDate.ToString("dd/MM/yyyy")</td>
+                <td>@item.ReturnDate.ToString("dd/MM/yyyy")</td>
+                <td>@item.CustomerName</td>
+                <td>@item.Quantity</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

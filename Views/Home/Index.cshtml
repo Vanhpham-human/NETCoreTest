@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Trang chủ";
+}
+
+<div class="text-center">
+    <h1 class="display-4">ComicSystem - comicsys.com</h1>
+    <p class="lead">Hệ thống quản lý thuê truyện tranh</p>
+</div>
+
+<div class="row mt-4">
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Quản lý truyện tranh</h5>
+                <p class="card-text">Thêm, sửa, xóa truyện tranh trong hệ thống.</p>
+                <a asp-controller="ComicBooks" asp-action="Index" class="btn btn-primary">Quản lý truyện</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Đăng ký khách hàng</h5>
+                <p class="card-text">Đăng ký khách hàng mới vào hệ thống.</p>
+                <a asp-controller="Customers" asp-action="Register" class="btn btn-primary">Đăng ký</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Xử lý thuê truyện</h5>
+                <p class="card-text">Tạo phiếu thuê truyện cho khách hàng.</p>
+                <a asp-controller="Rentals" asp-action="Create" class="btn btn-primary">Thuê truyện</a>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6 mb-3">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Báo cáo</h5>
+                <p class="card-text">Xem báo cáo thuê truyện theo khoảng thời gian.</p>
+                <a asp-controller="Reports" asp-action="Index" class="btn btn-primary">Xem báo cáo</a>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+@model ComicSystem.Models.ComicBook
+@{
+    ViewData["Title"] = "Xóa truyện tranh";
+}
+
+<h2>Xóa truyện tranh</h2>
+
+<h3>Bạn có chắc muốn xóa truyện này?</h3>
+
+<dl class="row">
+    <dt class="col-sm-3">Tên truyện</dt>
+    <dd class="col-sm-9">@Model.Title</dd>
+    <dt class="col-sm-3">Tác giả</dt>
+    <dd class="col-sm-9">@Model.Author</dd>
+    <dt class="col-sm-3">Giá thuê/ngày</dt>
+    <dd class="col-sm-9">@Model.PricePerDay.ToString("N0")</dd>
+</dl>
+
+<form asp-action="Delete" method="post">
+    <input type="hidden" asp-for="ComicBookID" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Quay lại</a>
+</form>
